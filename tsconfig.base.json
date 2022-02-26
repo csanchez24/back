@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@syseuback/data": ["libs/data/src/index.ts"],
+      "@syseuback/shared/data": ["libs/shared/data/src/index.ts"],
+      "@syseuback/shared/decorators": ["libs/shared/decorators/src/index.ts"],
+      "@syseuback/shared/guards": ["libs/shared/guards/src/index.ts"],
+      "@syseuback/shared/strategies": ["libs/shared/strategies/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

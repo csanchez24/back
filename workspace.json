@@ -1,4 +1,12 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "authentication": "apps/authentication",
+    "authorization": "apps/authorization",
+    "portal": "apps/portal",
+    "shared-data": "libs/shared/data",
+    "shared-decorators": "libs/shared/decorators",
+    "shared-guards": "libs/shared/guards",
+    "shared-strategies": "libs/shared/strategies"
+  }
 }
