@@ -6,6 +6,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from '../auth/auth.module';
 import { Gener05Module } from '../gener05/gener05.module';
+import { Gener02Module } from '../gener02/gener02.module';
+import { Gener04Module } from '../gener04/gener04.module';
 
 @Module({
   imports: [
@@ -35,6 +37,8 @@ import { Gener05Module } from '../gener05/gener05.module';
       },
     ]),
     AuthModule,
+    Gener02Module,
+    Gener04Module,
     Gener05Module,
   ],
   controllers: [],

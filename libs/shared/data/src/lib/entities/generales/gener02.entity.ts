@@ -7,9 +7,11 @@ import {
   Entity,
   JoinTable,
   ManyToMany,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Gener04 } from './gener04.entity';
 
 @Entity()
 export class Gener02 {
@@ -34,6 +36,9 @@ export class Gener02 {
   @ManyToMany(() => Gener21, (gener21) => gener21.users)
   @JoinTable({ name: 'gener03' })
   roles: Gener21[];
+
+  @OneToMany(() => Gener04, (gener04) => gener04.gener02)
+  gener04: Gener04[];
 
   @CreateDateColumn()
   created_at: Date;

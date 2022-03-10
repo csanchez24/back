@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateGener05Input, Gener05 } from '@syseuback/shared/data';
+import { CreateGener05Input, Gener05 } from '@back/shared/data';
 import { Repository } from 'typeorm';
 
 @Injectable()

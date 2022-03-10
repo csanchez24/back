@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { Gener02 } from '@syseuback/shared/data';
+import { Gener02 } from '@back/shared/data';
 import { Login, Profile } from '../common/interfaces';
 import { AuthService } from './auth.service';
 

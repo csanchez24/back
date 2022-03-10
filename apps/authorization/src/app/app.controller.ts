@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { CaslAuthorization } from '@syseuback/shared/data';
+import { CaslAuthorization } from '@back/shared/data';
 
 import { AppService } from './app.service';
 

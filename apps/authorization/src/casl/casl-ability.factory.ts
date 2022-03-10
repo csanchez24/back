@@ -6,7 +6,7 @@ import {
   InferSubjects,
 } from '@casl/ability';
 import { Injectable } from '@nestjs/common';
-import { CaslAction, Gener02 } from '@syseuback/shared/data';
+import { CaslAction, Gener02 } from '@back/shared/data';
 
 type Subjects = InferSubjects<typeof Gener02> | 'all' | 'Gener05';
 
@@ -20,10 +20,10 @@ export class CaslAbilityFactory {
     >(Ability as AbilityClass<AppAbility>);
 
     if (user.roles.find((gener21) => gener21.role === 'admin')) {
-      //can(Action.Manage, 'all');
-      can(CaslAction.Read, 'Gener05');
+      can(CaslAction.Manage, 'all');
+      //can(CaslAction.Read, 'Gener05');
       //cannot(Action.Manage, 'all');
-      cannot(CaslAction.Create, 'Gener05');
+      //cannot(CaslAction.Create, 'Gener05');
     } else {
       //cannot(Action.Manage, 'all');
       //can(Action.Read, 'Gener05');

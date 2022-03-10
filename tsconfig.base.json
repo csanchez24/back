@@ -15,11 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@syseuback/data": ["libs/data/src/index.ts"],
-      "@syseuback/shared/data": ["libs/shared/data/src/index.ts"],
-      "@syseuback/shared/decorators": ["libs/shared/decorators/src/index.ts"],
-      "@syseuback/shared/guards": ["libs/shared/guards/src/index.ts"],
-      "@syseuback/shared/strategies": ["libs/shared/strategies/src/index.ts"]
+      "@back/data": ["libs/data/src/index.ts"],
+      "@back/shared/data": ["libs/shared/data/src/index.ts"],
+      "@back/shared/decorators": ["libs/shared/decorators/src/index.ts"],
+      "@back/shared/guards": ["libs/shared/guards/src/index.ts"],
+      "@back/shared/strategies": ["libs/shared/strategies/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

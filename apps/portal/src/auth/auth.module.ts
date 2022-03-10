@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthResolver } from './auth.resolver';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { JwtStrategy } from '@syseuback/shared/strategies';
+import { JwtStrategy } from '@back/shared/strategies';
 
 @Module({
   imports: [

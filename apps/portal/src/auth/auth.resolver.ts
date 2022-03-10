@@ -5,9 +5,9 @@ import {
   AuthType,
   Gener02,
   Gener02Type,
-} from '@syseuback/shared/data';
-import { CurrentUser } from '@syseuback/shared/decorators';
-import { GqlAuthGuard } from '@syseuback/shared/guards';
+} from '@back/shared/data';
+import { CurrentUser } from '@back/shared/decorators';
+import { GqlAuthGuard } from '@back/shared/guards';
 import { AuthService } from './auth.service';
 
 @Resolver()

@@ -4,8 +4,8 @@ import {
   CaslAction,
   CreateGener05Input,
   Gener05Type,
-} from '@syseuback/shared/data';
-import { PoliceGuard, GqlAuthGuard } from '@syseuback/shared/guards';
+} from '@back/shared/data';
+import { PoliceGuard, GqlAuthGuard } from '@back/shared/guards';
 import { Gener05Service } from './gener05.service';
 
 @Resolver()

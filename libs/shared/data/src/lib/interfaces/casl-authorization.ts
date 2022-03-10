@@ -1,5 +1,5 @@
 import { CaslAction } from '../enums';
-import { Gener02 } from '@syseuback/shared/data';
+import { Gener02 } from '@back/shared/data';
 
 export interface CaslAuthorization {
   moduleName: any;

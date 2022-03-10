@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { Gener02 } from '@syseuback/shared/data';
+import { Gener02 } from '@back/shared/data';
 import { lastValueFrom } from 'rxjs';
 
 @Injectable()

@@ -1,5 +1,5 @@
 {
-  "npmScope": "syseuback",
+  "npmScope": "back",
   "affected": {
     "defaultBase": "main"
   },

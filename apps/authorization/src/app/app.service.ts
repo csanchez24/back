@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CaslAuthorization } from '@syseuback/shared/data';
+import { CaslAuthorization } from '@back/shared/data';
 import { CaslAbilityFactory } from '../casl/casl-ability.factory';
 
 @Injectable()

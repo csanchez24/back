@@ -2,7 +2,7 @@ import { CanActivate, ExecutionContext, Inject, mixin } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { ClientProxy } from '@nestjs/microservices';
 import { lastValueFrom } from 'rxjs';
-import { CaslAction, CaslAuthorization } from '@syseuback/shared/data';
+import { CaslAction, CaslAuthorization } from '@back/shared/data';
 
 export const PoliceGuard = (action: CaslAction, moduleName: string) => {
   class PoliceGuardMixin implements CanActivate {

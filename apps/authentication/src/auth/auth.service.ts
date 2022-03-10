@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Gener02 } from '@syseuback/shared/data';
+import { Gener02 } from '@back/shared/data';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { Login, Profile } from '../common/interfaces';
