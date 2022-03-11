@@ -1,11 +1,6 @@
 import { UseGuards } from '@nestjs/common';
 import { Args, Query, Resolver } from '@nestjs/graphql';
-import {
-  AuthInput,
-  AuthType,
-  Gener02,
-  Gener02Type,
-} from '@back/shared/data';
+import { AuthInput, AuthType, User, UserType } from '@back/shared/data';
 import { CurrentUser } from '@back/shared/decorators';
 import { GqlAuthGuard } from '@back/shared/guards';
 import { AuthService } from './auth.service';
@@ -25,8 +20,8 @@ export class AuthResolver {
   }
 
   @UseGuards(GqlAuthGuard)
-  @Query(() => Gener02Type)
-  async getProfile(@CurrentUser() gener02: Gener02) {
-    return gener02;
+  @Query(() => UserType)
+  async getProfile(@CurrentUser() user: User) {
+    return user;
   }
 }

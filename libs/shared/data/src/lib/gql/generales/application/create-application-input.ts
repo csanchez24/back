@@ -2,7 +2,7 @@ import { Field, InputType } from '@nestjs/graphql';
 import { IsNumber, MinLength } from 'class-validator';
 
 @InputType()
-export class CreateGener05Input {
+export class CreateApplicationInput {
   @Field()
   @MinLength(2)
   code: string;

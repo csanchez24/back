@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
-import { Gener05Service } from './gener05.service';
-import { Gener05Resolver } from './gener05.resolver';
+import { UserService } from './user.service';
+import { UserResolver } from './user.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { Gener05 } from '@back/shared/data';
+import { User, Role, Notification } from '@back/shared/data';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Gener05]),
+    TypeOrmModule.forFeature([User, Role, Notification]),
     ClientsModule.register([
       {
         name: 'AUTHORIZATION',
@@ -19,6 +19,6 @@ import { Gener05 } from '@back/shared/data';
       },
     ]),
   ],
-  providers: [Gener05Service, Gener05Resolver],
+  providers: [UserService, UserResolver],
 })
-export class Gener05Module {}
+export class UserModule {}

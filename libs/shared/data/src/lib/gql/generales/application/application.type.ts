@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-@ObjectType('Gener05')
-export class Gener05Type {
+@ObjectType('Application')
+export class ApplicationType {
   @Field(() => ID)
   id: number;
 

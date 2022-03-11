@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Gener02 } from '@back/shared/data';
+import { User } from '@back/shared/data';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { Login, Profile } from '../common/interfaces';
@@ -9,34 +9,35 @@ import { Login, Profile } from '../common/interfaces';
 @Injectable()
 export class AuthService {
   constructor(
-    @InjectRepository(Gener02) private gener02Repository: Repository<Gener02>,
+    @InjectRepository(User) private userRepository: Repository<User>,
     private jwtService: JwtService,
   ) {}
 
   async login({ email, password }: Login) {
-    const gener02 = await this.gener02Repository.findOne({ email });
-    if (!gener02) return null;
-    const isMatch = await bcrypt.compare(password, gener02.password);
+    const user = await this.userRepository.findOne({ email });
+    if (!user) return null;
+    const isMatch = await bcrypt.compare(password, user.password);
+    console.log(isMatch, password, user.password);
     if (isMatch) {
-      return this.getToken(gener02);
+      return this.getToken(user);
     }
     return null;
   }
 
-  async profile(profile: Profile): Promise<Gener02> {
-    const gener02 = await this.gener02Repository.findOne({
+  async profile(profile: Profile): Promise<User> {
+    const user = await this.userRepository.findOne({
       where: { id: profile.id },
       relations: ['roles'],
     });
-    if (!gener02) return null;
-    return gener02;
+    if (!user) return null;
+    return user;
   }
 
-  getToken(user: Gener02) {
+  getToken(user: User) {
     const payload = {
       user: {
         id: user.id,
-        name: user.lastName + ' ' + user.firstName,
+        name: user.last_name + ' ' + user.first_name,
         email: user.email,
         roles: user.roles,
       },

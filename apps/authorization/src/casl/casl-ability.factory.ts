@@ -6,28 +6,28 @@ import {
   InferSubjects,
 } from '@casl/ability';
 import { Injectable } from '@nestjs/common';
-import { CaslAction, Gener02 } from '@back/shared/data';
+import { CaslAction, User } from '@back/shared/data';
 
-type Subjects = InferSubjects<typeof Gener02> | 'all' | 'Gener05';
+type Subjects = InferSubjects<typeof User> | 'all' | 'Application';
 
 export type AppAbility = Ability<[CaslAction, Subjects]>;
 
 @Injectable()
 export class CaslAbilityFactory {
-  createForUser(user: Gener02) {
+  createForUser(user: User) {
     const { can, cannot, build } = new AbilityBuilder<
       Ability<[CaslAction, Subjects]>
     >(Ability as AbilityClass<AppAbility>);
 
-    if (user.roles.find((gener21) => gener21.role === 'admin')) {
+    if (user.roles.find((role) => role.role === 'admin')) {
       can(CaslAction.Manage, 'all');
-      //can(CaslAction.Read, 'Gener05');
+      //can(CaslAction.Read, 'Application');
       //cannot(Action.Manage, 'all');
-      //cannot(CaslAction.Create, 'Gener05');
+      //cannot(CaslAction.Create, 'Application');
     } else {
       //cannot(Action.Manage, 'all');
-      //can(Action.Read, 'Gener05');
-      //cannot(Action.Create, 'Gener05');
+      //can(Action.Read, 'Application');
+      //cannot(Action.Create, 'Application');
     }
 
     return build({

@@ -1,8 +1,8 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { Gener02Type } from '../gener02/gener02.type';
+import { UserType } from '../user/user.type';
 
-@ObjectType('Gener21')
-export class Gener21Type {
+@ObjectType('Role')
+export class RoleType {
   @Field(() => ID)
   id: number;
 
@@ -12,6 +12,6 @@ export class Gener21Type {
   @Field()
   description: string;
 
-  @Field(() => [Gener02Type])
+  @Field(() => [UserType])
   users: string;
 }

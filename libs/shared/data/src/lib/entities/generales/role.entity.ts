@@ -1,8 +1,8 @@
-import { Gener02 } from './gener02.entity';
+import { User } from './user.entity';
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Gener21 {
+export class Role {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -12,6 +12,6 @@ export class Gener21 {
   @Column()
   description: string;
 
-  @ManyToMany(() => Gener02, (gener02) => gener02.roles)
-  users: Gener02[];
+  @ManyToMany(() => User, (user) => user.roles)
+  users: User[];
 }

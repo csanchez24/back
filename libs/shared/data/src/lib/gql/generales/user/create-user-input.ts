@@ -2,14 +2,14 @@ import { Field, InputType } from '@nestjs/graphql';
 import { IsBoolean, IsEmail, IsNumber, MinLength } from 'class-validator';
 
 @InputType()
-export class CreateGener02Input {
+export class CreateUserInput {
   @Field()
   @MinLength(3)
-  firstName: string;
+  first_name: string;
 
   @Field()
   @MinLength(3)
-  lastName: string;
+  last_name: string;
 
   @Field()
   @IsEmail()
@@ -21,7 +21,7 @@ export class CreateGener02Input {
 
   @Field()
   @IsBoolean()
-  isActive: boolean;
+  is_active: boolean;
 
   @Field(() => [Number])
   @IsNumber({}, { each: true })

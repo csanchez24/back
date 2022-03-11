@@ -20,13 +20,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
 
     const pattern = { cmd: 'profile' };
-    const gener02 = await lastValueFrom(
-      this.client.send(pattern, payload.user),
-    );
-    //const gener02 = await this.authService.getProfile(payload.user);
-    if (!gener02) {
+    const user = await lastValueFrom(this.client.send(pattern, payload.user));
+    if (!user) {
       throw new UnauthorizedException();
     }
-    return gener02;
+    return user;
   }
 }

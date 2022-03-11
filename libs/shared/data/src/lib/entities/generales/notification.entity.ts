@@ -5,26 +5,31 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  JoinColumn,
 } from 'typeorm';
-import { Gener02 } from './';
+import { User } from './';
 
 @Entity()
-export class Gener04 {
+export class Notification {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column()
+  title: string;
+
   @Column('text')
   message: string;
+
+  @ManyToOne(() => User, (user) => user.notifications)
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 
   @Column()
   read: boolean;
 
   @CreateDateColumn()
-  createdAt: Date;
+  created_at: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
-
-  @ManyToOne(() => Gener02, (gener02) => gener02.gener04)
-  gener02: Gener02;
+  updated_at: Date;
 }

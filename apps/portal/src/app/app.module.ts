@@ -5,9 +5,9 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from '../auth/auth.module';
-import { Gener05Module } from '../gener05/gener05.module';
-import { Gener02Module } from '../gener02/gener02.module';
-import { Gener04Module } from '../gener04/gener04.module';
+import { ApplicationModule } from '../application/application.module';
+import { UserModule } from '../user/user.module';
+import { NotificationModule } from '../notification/notification.module';
 
 @Module({
   imports: [
@@ -37,9 +37,9 @@ import { Gener04Module } from '../gener04/gener04.module';
       },
     ]),
     AuthModule,
-    Gener02Module,
-    Gener04Module,
-    Gener05Module,
+    UserModule,
+    NotificationModule,
+    ApplicationModule,
   ],
   controllers: [],
   providers: [],

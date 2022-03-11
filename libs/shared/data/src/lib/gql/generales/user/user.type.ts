@@ -1,16 +1,16 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { Gener21Type } from '../gener21/gener21.type';
+import { RoleType } from '../role/role.type';
 
-@ObjectType('Gener02')
-export class Gener02Type {
+@ObjectType('User')
+export class UserType {
   @Field(() => ID)
   id: number;
 
   @Field()
-  firstName: string;
+  first_name: string;
 
   @Field()
-  lastName: string;
+  last_name: string;
 
   @Field()
   email: string;
@@ -19,8 +19,8 @@ export class Gener02Type {
   password: string;
 
   @Field()
-  isActive: boolean;
+  is_active: boolean;
 
-  @Field(() => [Gener21Type])
+  @Field(() => [RoleType])
   roles: string;
 }

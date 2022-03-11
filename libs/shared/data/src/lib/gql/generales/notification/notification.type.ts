@@ -1,9 +1,12 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-@ObjectType('Gener04')
-export class Gener04Type {
+@ObjectType('Notification')
+export class NotificationType {
   @Field(() => ID)
   id: number;
+
+  @Field()
+  title: string;
 
   @Field()
   message: string;
@@ -12,8 +15,8 @@ export class Gener04Type {
   read: boolean;
 
   @Field()
-  createdAt: string;
+  created_at: string;
 
   @Field()
-  updatedAt: string;
+  updated_at: string;
 }

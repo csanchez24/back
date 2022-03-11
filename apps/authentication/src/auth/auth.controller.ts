@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { Gener02 } from '@back/shared/data';
+import { User } from '@back/shared/data';
 import { Login, Profile } from '../common/interfaces';
 import { AuthService } from './auth.service';
 
@@ -14,7 +14,7 @@ export class AuthController {
   }
 
   @MessagePattern({ cmd: 'profile' })
-  async profile(payload: Profile): Promise<Gener02> {
+  async profile(payload: Profile): Promise<User> {
     return await this.authService.profile(payload);
   }
 }

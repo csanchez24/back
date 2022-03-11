@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { Gener02 } from '@back/shared/data';
+import { User } from '@back/shared/data';
 import { lastValueFrom } from 'rxjs';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class AuthService {
     return await lastValueFrom(this.client.send(pattern, payload));
   }
 
-  async getProfile(user: Gener02) {
+  async getProfile(user: User) {
     const pattern = { cmd: 'profile' };
     return await lastValueFrom(this.client.send(pattern, user));
   }

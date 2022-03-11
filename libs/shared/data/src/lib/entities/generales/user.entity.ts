@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt';
-import { Gener21 } from './gener21.entity';
+import { Role } from './role.entity';
 import {
   BeforeInsert,
   Column,
@@ -11,18 +11,18 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Gener04 } from './gener04.entity';
+import { Notification } from './notification.entity';
 
 @Entity()
-export class Gener02 {
+export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  firstName: string;
+  first_name: string;
 
   @Column()
-  lastName: string;
+  last_name: string;
 
   @Column()
   email: string;
@@ -31,14 +31,24 @@ export class Gener02 {
   password: string;
 
   @Column()
-  isActive: boolean;
+  is_active: boolean;
 
-  @ManyToMany(() => Gener21, (gener21) => gener21.users)
-  @JoinTable({ name: 'gener03' })
-  roles: Gener21[];
+  @ManyToMany(() => Role, (role) => role.users)
+  @JoinTable({
+    name: 'user_roles',
+    joinColumn: {
+      name: 'user_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'role_id',
+      referencedColumnName: 'id',
+    },
+  })
+  roles: Role[];
 
-  @OneToMany(() => Gener04, (gener04) => gener04.gener02)
-  gener04: Gener04[];
+  @OneToMany(() => Notification, (notification) => notification.user)
+  notifications: Notification[];
 
   @CreateDateColumn()
   created_at: Date;
