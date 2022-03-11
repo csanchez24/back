@@ -17,7 +17,6 @@ export class AuthService {
     const user = await this.userRepository.findOne({ email });
     if (!user) return null;
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log(isMatch, password, user.password);
     if (isMatch) {
       return this.getToken(user);
     }
