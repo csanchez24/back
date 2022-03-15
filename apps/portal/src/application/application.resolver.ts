@@ -12,21 +12,21 @@ import { ApplicationService } from './application.service';
 export class ApplicationResolver {
   constructor(private applicationService: ApplicationService) {}
 
-  @UseGuards(PoliceGuard(CaslAction.Read, 'Application'))
+  @UseGuards(PoliceGuard('ge', CaslAction.Delete, 'application'))
   @UseGuards(GqlAuthGuard)
   @Query(() => ApplicationType, { name: 'application' })
   async getApplication(@Args('id', { type: () => Int }) id: number) {
     return this.applicationService.getOne(id);
   }
 
-  @UseGuards(PoliceGuard(CaslAction.Create, 'Application'))
+  @UseGuards(PoliceGuard('ge', CaslAction.Read, 'application'))
   @UseGuards(GqlAuthGuard)
   @Query(() => [ApplicationType], { name: 'allApplication' })
   async getAllApplication() {
     return this.applicationService.getAll();
   }
 
-  @UseGuards(PoliceGuard(CaslAction.Create, 'Application'))
+  @UseGuards(PoliceGuard('ge', CaslAction.Create, 'application'))
   @UseGuards(GqlAuthGuard)
   @Mutation(() => ApplicationType)
   createApplication(

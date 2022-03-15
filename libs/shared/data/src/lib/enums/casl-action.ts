@@ -1,7 +1,7 @@
 export enum CaslAction {
-  Manage = 'manage',
-  Create = 'create',
   Read = 'read',
+  Create = 'create',
   Update = 'update',
   Delete = 'delete',
+  Process = 'process',
 }

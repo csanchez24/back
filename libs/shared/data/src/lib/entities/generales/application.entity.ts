@@ -1,6 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Resource } from './resource.entity';
 
-@Entity()
+@Entity({ name: 'applications' })
 export class Application {
   @PrimaryGeneratedColumn()
   id: number;
@@ -13,4 +14,7 @@ export class Application {
 
   @Column()
   order: number;
+
+  @OneToMany(() => Resource, (resource) => resource.application)
+  resources: Resource[];
 }

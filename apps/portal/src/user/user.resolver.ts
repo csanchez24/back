@@ -8,7 +8,7 @@ import { UserService } from './user.service';
 export class UserResolver {
   constructor(private userService: UserService) {}
 
-  @UseGuards(PoliceGuard(CaslAction.Update, 'User'))
+  @UseGuards(PoliceGuard('ge', CaslAction.Update, 'User'))
   @UseGuards(GqlAuthGuard)
   @Mutation(() => UserType)
   updateUser(@Args('updateUserInput') updateUserInput: UpdateUserInput) {

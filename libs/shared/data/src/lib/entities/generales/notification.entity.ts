@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import { User } from './';
 
-@Entity()
+@Entity({ name: 'notifications' })
 export class Notification {
   @PrimaryGeneratedColumn()
   id: number;

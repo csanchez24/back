@@ -9,7 +9,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @MessagePattern({ cmd: 'authorization' })
-  authorization(payload: CaslAuthorization): boolean {
-    return this.appService.validate(payload);
+  async authorization(payload: CaslAuthorization): Promise<boolean> {
+    return await this.appService.validate(payload);
   }
 }

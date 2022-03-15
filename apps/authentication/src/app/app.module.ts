@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User, Notification, Role } from '@back/shared/data';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthModule } from '../auth/auth.module';
 
@@ -15,7 +14,7 @@ import { AuthModule } from '../auth/auth.module';
       username: 'root',
       password: 'control80',
       database: 'generales_microservice',
-      entities: [User, Notification, Role],
+      autoLoadEntities: true,
       synchronize: true,
     }),
     JwtModule.register({

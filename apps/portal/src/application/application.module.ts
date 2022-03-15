@@ -3,11 +3,16 @@ import { ApplicationService } from './application.service';
 import { ApplicationResolver } from './application.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { Application } from '@back/shared/data';
+import {
+  Application,
+  Resource,
+  RolePolice,
+  UserPolice,
+} from '@back/shared/data';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Application]),
+    TypeOrmModule.forFeature([Application, Resource, UserPolice, RolePolice]),
     ClientsModule.register([
       {
         name: 'AUTHORIZATION',

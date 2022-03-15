@@ -6,12 +6,16 @@ import { CaslAbilityFactory } from '../casl/casl-ability.factory';
 export class AppService {
   constructor(private caslAbilityFactory: CaslAbilityFactory) {}
 
-  validate(casl: CaslAuthorization): boolean {
-    const ability = this.caslAbilityFactory.createForUser(casl.user);
-    if (ability.can(casl.action, casl.moduleName)) {
+  async validate(casl: CaslAuthorization): Promise<boolean> {
+    if (!casl.application || !casl.user) return false;
+    const ability = await this.caslAbilityFactory.createForUser(
+      casl.application,
+      casl.user,
+    );
+    if (ability.can(casl.action, 'all')) {
       return true;
     }
-    if (ability.can(casl.action, 'all')) {
+    if (ability.can(casl.action, casl.moduleName)) {
       return true;
     }
     return false;
