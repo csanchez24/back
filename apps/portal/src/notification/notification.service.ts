@@ -13,4 +13,9 @@ export class NotificationService {
   async get(user: User): Promise<Notification[]> {
     return this.notificationRepository.find({ user });
   }
+
+  async markAsRead(id: string): Promise<Notification> {
+    await this.notificationRepository.update(id, { read: true });
+    return await this.notificationRepository.findOne(id);
+  }
 }

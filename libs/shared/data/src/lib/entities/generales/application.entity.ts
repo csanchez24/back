@@ -12,6 +12,9 @@ export class Application {
   @Column()
   name: string;
 
+  @Column('longtext')
+  image: string;
+
   @Column()
   order: number;
 

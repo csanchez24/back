@@ -1,5 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { IsBoolean, IsEmail, IsNumber, MinLength } from 'class-validator';
+import { Languague } from '../../../enums';
 
 @InputType()
 export class CreateUserInput {
@@ -14,6 +15,9 @@ export class CreateUserInput {
   @Field()
   @IsEmail()
   email: string;
+
+  @Field((type) => Languague)
+  languague: Languague;
 
   @Field()
   @MinLength(3)

@@ -8,12 +8,16 @@ import {
   Role,
   RolePolice,
   UserPolice,
+  Resource,
+  Application,
 } from '@back/shared/data';
 import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
+      Resource,
+      Application,
       RolePolice,
       UserPolice,
       User,

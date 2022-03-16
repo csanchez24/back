@@ -28,7 +28,7 @@ export class RolePolice {
   @JoinColumn({ name: 'role_id' })
   roles: Role[];
 
-  @ManyToOne(() => Role, (role) => role.role_policies)
+  @ManyToOne(() => Resource, (resource) => resource.role_policies)
   @JoinColumn({ name: 'resource_id' })
   resources: Resource[];
 }

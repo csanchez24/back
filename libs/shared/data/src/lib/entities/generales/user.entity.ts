@@ -12,6 +12,7 @@ import {
 } from 'typeorm';
 import { Notification } from './notification.entity';
 import { UserPolice } from './user_policies.entity';
+import { Languague } from '../../enums';
 
 @Entity({ name: 'users' })
 export class User {
@@ -26,6 +27,12 @@ export class User {
 
   @Column()
   email: string;
+
+  @Column({
+    type: 'enum',
+    enum: Languague,
+  })
+  languague: Languague;
 
   @Column()
   password: string;

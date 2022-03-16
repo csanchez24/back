@@ -12,5 +12,8 @@ export class ApplicationType {
   name: string;
 
   @Field()
+  image: string;
+
+  @Field()
   order: number;
 }
